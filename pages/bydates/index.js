@@ -1,9 +1,8 @@
 import Head from "next/head";
 import React from "react";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import { readRemoteFile } from "react-papaparse";
-import FooterComponent from "../components/FooterComponent/FooterComponent";
+import FooterComponent from "../../components/FooterComponent/FooterComponent";
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import TimerIcon from "@mui/icons-material/Timer";
@@ -13,9 +12,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import CalendarToday from "@mui/icons-material/CalendarToday";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
-import SearchInAllWebComponent from "../components/SearchInAllWebComponent/SearchInAllWebComponent";
+import SearchInAllWebComponent from "../../components/SearchInAllWebComponent/SearchInAllWebComponent";
 
-export default function Home({ resultado }) {
+export default function IndexByDates({ resultado }) {
   const [finalData, setFinalData] = React.useState(resultado);
   const [finalDataBack, setFinalDataBack] = React.useState(resultado);
   const [finalDataDias, setFinalDataDias] = React.useState([]);
@@ -84,7 +83,7 @@ export default function Home({ resultado }) {
   }, [valorBuscarDias]);
 
   return (
-    <div className={styles.container}>
+    <div className={null}>
       <Head>
         <title>Programa 34 - Girona Film Festival</title>
         <meta name="description" content={"Girona Film Festival Programa 34"} />
