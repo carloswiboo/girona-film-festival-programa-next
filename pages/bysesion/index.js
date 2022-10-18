@@ -30,42 +30,24 @@ export default function IndexByDates({ resultado }) {
       {
         header: true,
         complete: (results) => {
-          debugger;
           let contador = 1;
           for (const dato of results.data) {
             dato["id"] = contador;
             contador++;
           }
 
-          const optionsSelected = [];
-
-          results.data.sort(function (a, b) {
-            if (a["Submission Categories"] < b["Submission Categories"]) {
-              return -1;
-            }
-            if (a["Submission Categories"] > b["Submission Categories"]) {
-              return 1;
-            }
-            return 0;
-          });
-
-          const uniqueArr = [...new Set(results.data.map((data) => data.Dia))];
-
-          const uniqueArrHoras = [
-            ...new Set(results.data.map((data) => data.Hora)),
+          let uniqueArr = [
+            ...new Set(results.data.map((data) => data["Num. sesión"])),
           ];
 
-          function dateToNum(d) {
-            // Convert date "26/06/2016" to 20160626
-            d = d.split("/");
-            return Number(d[2] + d[1] + d[0]);
-          }
+          const uniqueArrHoras = [
+            ...new Set(results.data.map((data) => data["Num. sesión"])),
+          ];
 
           uniqueArr.sort(function (a, b) {
-            return dateToNum(a) - dateToNum(b);
+            return parseFloat(a) - parseFloat(b);
           });
 
-          debugger;
           uniqueArr.push("ALL");
           uniqueArrHoras.push("ALL");
 
@@ -149,7 +131,7 @@ export default function IndexByDates({ resultado }) {
         <div className="row">
           {finalData.map((pelicula, index) => (
             <React.Fragment key={index}>
-              {pelicula.Dia == valorBuscarDias ? (
+              {pelicula['Num. sesión'] == valorBuscarDias ? (
                 <div className="col-sm-4 mb-3" key={index}>
                   <div className="card">
                     <div className="card-body">
@@ -213,7 +195,7 @@ export default function IndexByDates({ resultado }) {
                           <ConfirmationNumberIcon fontSize="small" /> Buy
                           Tickets
                         </a>
-                       
+                      
                       </p>
                     </div>
                     <div className="card-footer">
@@ -297,13 +279,13 @@ export default function IndexByDates({ resultado }) {
                           href="https://filmfreeway.com/GironaFilmFestival/tickets/128404"
                           target={"_blank"}
                           rel="noreferrer"
-                         
+                        
                           style={{ color: "white", textDecoration: "none" }}
                         >
                           <ConfirmationNumberIcon fontSize="small" /> Buy
                           Tickets
                         </a>
-                       
+                      
                       </p>
                     </div>
                     <div className="card-footer">
