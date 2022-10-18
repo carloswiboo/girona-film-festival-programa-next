@@ -37,14 +37,14 @@ export default function IndexByDates({ resultado }) {
   const googleTranslateElementInit = () => {
     new window.google.translate.TranslateElement(
       {
-        pageLanguage: "en",
+        pageLanguage: "es",
         includedLanguages: "en,ms,ta,zh-CN", // include this for selected languages
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       },
       "google_translate_element"
     );
   };
-  
+
 
   React.useEffect(() => {
     readRemoteFile(
