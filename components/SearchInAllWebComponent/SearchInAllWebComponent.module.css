@@ -1,0 +1,9 @@
+.searchComponent
+{
+    position: fixed;
+    top: 0;
+    left: 50;
+    right: 50;
+    z-index: 5000;
+    width: 100%;
+}

@@ -13,17 +13,77 @@ import CloseIcon from "@mui/icons-material/Close";
 import CalendarToday from "@mui/icons-material/CalendarToday";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
+import SearchInAllWebComponent from "../components/SearchInAllWebComponent/SearchInAllWebComponent";
 
-export default function Home({ resultado, titulo, description }) {
+export default function Home({ resultado }) {
   const [finalData, setFinalData] = React.useState(resultado);
+  const [finalDataBack, setFinalDataBack] = React.useState(resultado);
+  const [finalDataDias, setFinalDataDias] = React.useState([]);
+  const [finalDataHoras, setFinalDataHoras] = React.useState([]);
+  const [valorBuscarDias, setValorBuscarDias] = React.useState("ALL");
+  const [valorBuscarHoras, setValorBuscarHoras] = React.useState("");
 
   console.log(finalData);
+
+  React.useEffect(() => {
+    readRemoteFile(process.env.REACT_APP_FILE_PROGRAMA, {
+      header: true,
+      complete: (results) => {
+        debugger;
+        let contador = 1;
+        for (const dato of results.data) {
+          dato["id"] = contador;
+          contador++;
+        }
+
+        const optionsSelected = [];
+
+        results.data.sort(function (a, b) {
+          if (a["Submission Categories"] < b["Submission Categories"]) {
+            return -1;
+          }
+          if (a["Submission Categories"] > b["Submission Categories"]) {
+            return 1;
+          }
+          return 0;
+        });
+
+        const uniqueArr = [...new Set(results.data.map((data) => data.Dia))];
+
+        const uniqueArrHoras = [
+          ...new Set(results.data.map((data) => data.Hora)),
+        ];
+
+        function dateToNum(d) {
+          // Convert date "26/06/2016" to 20160626
+          d = d.split("/");
+          return Number(d[2] + d[1] + d[0]);
+        }
+
+        uniqueArr.sort(function (a, b) {
+          return dateToNum(a) - dateToNum(b);
+        });
+
+        uniqueArr.push("ALL");
+        uniqueArrHoras.push("ALL");
+
+        setFinalDataDias(uniqueArr);
+        setFinalDataHoras(uniqueArrHoras);
+
+        SetFinalData(results.data);
+
+        // results.data.pop();
+
+        //  console.log(results.data);
+      },
+    });
+  }, [valorBuscarDias]);
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>{titulo}</title>
-        <meta name="description" content={description} />
+        <title>Programa 34 - Girona Film Festival</title>
+        <meta name="description" content={"Girona Film Festival Programa 34"} />
         <link
           rel="icon"
           type="image/png"
@@ -31,7 +91,10 @@ export default function Home({ resultado, titulo, description }) {
         />
       </Head>
 
-      <div className="container">
+      <div className="container sticky-top">
+        <SearchInAllWebComponent />
+      </div>
+      <div className="container mt-5">
         <div className="row">
           {finalData.map((pelicula, index) => (
             <div className="col-sm-3 mb-3" key={index}>
@@ -52,6 +115,10 @@ export default function Home({ resultado, titulo, description }) {
                       "..."}
                   </h5>
                   <p className="card-text">
+                    {pelicula["Directors"] === "" ? null : (
+                      <>{pelicula["Directors"]}</>
+                    )}
+                    <br />
                     <CalendarToday
                       fontSize="small"
                       style={{ opacity: 0.5, fontSize: 16 }}
@@ -92,7 +159,7 @@ export default function Home({ resultado, titulo, description }) {
                       href="https://filmfreeway.com/GironaFilmFestival/tickets/128404"
                       target={"_blank"}
                       rel="noreferrer"
-                      style={{ color: "white", textDecoration: "none" }}
+                      style={{ color: "#800142", textDecoration: "none" }}
                     >
                       <ConfirmationNumberIcon fontSize="small" /> Buy Tickets
                     </a>
@@ -101,14 +168,14 @@ export default function Home({ resultado, titulo, description }) {
                 <div className="card-footer">
                   <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button
-                      className="btn btn-sm btn-outline-primary"
+                      className="btn btn-sm btn-outline-success"
                       type="button"
                       onClick={() => {
                         setIsOpen(true);
                         setMovieSelected(pelicula);
                       }}
                     >
-                      <VisibilityIcon fontSize="small" />
+                      Ver más... <VisibilityIcon fontSize="small" />
                     </button>
                   </div>
                 </div>
@@ -154,16 +221,10 @@ function llamarPrograma() {
 
 // This function gets called at build time
 export async function getStaticProps() {
-  const titulo = "Programa 34 - Girona Film Festival";
-  const description = "Configura el programa";
-
   const resultado = await llamarPrograma();
-
   return {
     props: {
       resultado,
-      titulo,
-      description,
     },
   };
 }
