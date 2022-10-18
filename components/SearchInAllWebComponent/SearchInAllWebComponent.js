@@ -34,16 +34,16 @@ const SearchInAllWebComponent = () => {
       >
         Buscar
       </div>
-      <div className="mx-3">
+      <small className="mx-3">
         <Link href="/bydates" className="me-3">
           <a>Buscar por Fechas</a>
         </Link>
-      </div>
-      <div className="mx-3">
+      </small>
+      <small className="mx-3">
         <Link href="/bysesion" className="me-3">
           <a>Buscar por Sesión</a>
         </Link>
-      </div>
+      </small>
     </div>
   );
 };

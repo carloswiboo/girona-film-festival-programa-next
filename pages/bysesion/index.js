@@ -22,6 +22,27 @@ export default function IndexByDates({ resultado }) {
   const [valorBuscarDias, setValorBuscarDias] = React.useState("ALL");
   const [valorBuscarHoras, setValorBuscarHoras] = React.useState("");
 
+  React.useEffect(() => {
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
+
+  const googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "es",
+        includedLanguages: "en,ms,ta,zh-CN", // include this for selected languages
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      },
+      "google_translate_element"
+    );
+  };
+
   console.log(finalData);
 
   React.useEffect(() => {
@@ -131,7 +152,7 @@ export default function IndexByDates({ resultado }) {
         <div className="row">
           {finalData.map((pelicula, index) => (
             <React.Fragment key={index}>
-              {pelicula['Num. sesión'] == valorBuscarDias ? (
+              {pelicula["Num. sesión"] == valorBuscarDias ? (
                 <div className="col-sm-4 mb-3" key={index}>
                   <div className="card">
                     <div className="card-body">
@@ -189,13 +210,11 @@ export default function IndexByDates({ resultado }) {
                           href="https://filmfreeway.com/GironaFilmFestival/tickets/128404"
                           target={"_blank"}
                           rel="noreferrer"
-                        
                           style={{ color: "white", textDecoration: "none" }}
                         >
                           <ConfirmationNumberIcon fontSize="small" /> Buy
                           Tickets
                         </a>
-                      
                       </p>
                     </div>
                     <div className="card-footer">
@@ -279,13 +298,11 @@ export default function IndexByDates({ resultado }) {
                           href="https://filmfreeway.com/GironaFilmFestival/tickets/128404"
                           target={"_blank"}
                           rel="noreferrer"
-                        
                           style={{ color: "white", textDecoration: "none" }}
                         >
                           <ConfirmationNumberIcon fontSize="small" /> Buy
                           Tickets
                         </a>
-                      
                       </p>
                     </div>
                     <div className="card-footer">
