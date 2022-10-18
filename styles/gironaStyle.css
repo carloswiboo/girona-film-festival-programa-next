@@ -1,0 +1,16 @@
+body {
+  background-image: url(https://www.gironafilmfestival.com/wp-content/uploads/2022/08/video-vimeo-1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.imagen_1_1
+{
+  aspect-ratio: 16 / 9;
+  background-color: #212529;
+  object-fit: scale-down;
+  object-fit:cover;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}

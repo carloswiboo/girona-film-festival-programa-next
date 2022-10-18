@@ -3,11 +3,22 @@ import React from "react";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { readRemoteFile } from "react-papaparse";
+import FooterComponent from "../components/FooterComponent/FooterComponent";
+
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import TimerIcon from "@mui/icons-material/Timer";
+import FlagIcon from "@mui/icons-material/Flag";
+import LanguageIcon from "@mui/icons-material/Language";
+import CloseIcon from "@mui/icons-material/Close";
+import CalendarToday from "@mui/icons-material/CalendarToday";
+import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
+import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 
 export default function Home({ resultado, titulo, description }) {
   const [finalData, setFinalData] = React.useState(resultado);
 
-  debugger;
+  console.log(finalData);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -20,32 +31,101 @@ export default function Home({ resultado, titulo, description }) {
         />
       </Head>
 
-      {
-        finalData.map((pelicula) => (
-          <>
-          
-          </>
-        ))
-      }
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <div className="container">
+        <div className="row">
+          {finalData.map((pelicula, index) => (
+            <div className="col-sm-3 mb-3" key={index}>
+              <div className="card">
+                <div className="card-body">
+                  <img
+                    src={
+                      pelicula["Fotograma"] === "" ||
+                      pelicula["Fotograma"] === "."
+                        ? "https://www.gironafilmfestival.com/wp-content/uploads/2022/09/Sin-titulo-1920-×-1080-px.png"
+                        : pelicula["Fotograma"]
+                    }
+                    className="w-100 mb-2 imagen_1_1"
+                    alt={pelicula["Project Title"]}
+                  />
+                  <h5 className="card-title">
+                    {pelicula["Project Title"].substring(0, 40).slice(0, 25) +
+                      "..."}
+                  </h5>
+                  <p className="card-text">
+                    <CalendarToday
+                      fontSize="small"
+                      style={{ opacity: 0.5, fontSize: 16 }}
+                    />{" "}
+                    {pelicula["Dia"]}
+                    <br />
+                    <TimerIcon
+                      fontSize="small"
+                      style={{ opacity: 0.5, fontSize: 16 }}
+                    />{" "}
+                    {pelicula["Hora"]}
+                    <br />
+                    <TimerIcon
+                      fontSize="small"
+                      style={{ opacity: 0.5, fontSize: 16 }}
+                    />{" "}
+                    {pelicula["Duration OK"]}
+                    <br />
+                    <LocalMoviesIcon
+                      fontSize="small"
+                      style={{ opacity: 0.5, fontSize: 16 }}
+                    />
+                    {pelicula["Submission Categories"]}
+                    <br />
+                    <FlagIcon
+                      fontSize="small"
+                      style={{ opacity: 0.5, fontSize: 16 }}
+                    />{" "}
+                    {pelicula["Country of Origin"]}
+                    <br />
+                    <LanguageIcon
+                      fontSize="small"
+                      style={{ opacity: 0.5, fontSize: 16 }}
+                    />{" "}
+                    {pelicula["Language"]}
+                    <br />
+                    <a
+                      href="https://filmfreeway.com/GironaFilmFestival/tickets/128404"
+                      target={"_blank"}
+                      rel="noreferrer"
+                      style={{ color: "white", textDecoration: "none" }}
+                    >
+                      <ConfirmationNumberIcon fontSize="small" /> Buy Tickets
+                    </a>
+                  </p>
+                </div>
+                <div className="card-footer">
+                  <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button
+                      className="btn btn-sm btn-outline-primary"
+                      type="button"
+                      onClick={() => {
+                        setIsOpen(true);
+                        setMovieSelected(pelicula);
+                      }}
+                    >
+                      <VisibilityIcon fontSize="small" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <FooterComponent />
     </div>
   );
 }
 function llamarPrograma() {
   return new Promise((resolve, reject) => {
     readRemoteFile(
-      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXp8JGVc9gI0zo6uaMTVhAB-WnRqfv-hgmJkB6BJjqof-U7lLpNZ3F4hEwByL4PQwbh9j4F3ku2DOQ/pub?gid=607989452&single=true&output=csv",
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRD9cIlCpdnkkljkwj38m-H9N_QfiYAFvqoCzHXttDyoNQLzxFcFuQgVtB7nVWfUA/pub?output=csv",
       {
         header: true,
         complete: (results) => {
@@ -65,12 +145,7 @@ function llamarPrograma() {
             }
             return 0;
           });
-
           resolve(results.data);
-
-          // results.data.pop();
-
-          //  console.log(results.data);
         },
       }
     );
