@@ -5,9 +5,67 @@ import { readRemoteFile } from "react-papaparse";
 import HeaderProgramaComponent from "../../components/HeaderProgramaComponent/HeaderProgramaComponent";
 import "./id.module.css";
 import { DateTime } from "luxon";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton,
+} from "react-share";
+
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  HatenaIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon,
+} from "react-share";
+
+const style = {
+  background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+  borderRadius: 3,
+  border: 0,
+  color: "white",
+  padding: "0 30px",
+  boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+};
+
 const MovieDetailScreen = ({ resultado }) => {
   const [finalData, setFinalData] = React.useState(resultado);
   const router = useRouter();
+
+  debugger;
+
   const { id } = router.query;
   console.log(finalData);
   return (
@@ -23,8 +81,11 @@ const MovieDetailScreen = ({ resultado }) => {
 
         <meta property="og:title" content={resultado["Project Title"]} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={resultado["Cartel"]}/>
-        <meta property="og:description" content={"GFF 8 al 13 Noviembre 2022"} />
+        <meta property="og:image" content={resultado["Cartel"]} />
+        <meta
+          property="og:description"
+          content={"GFF 8 al 13 Noviembre 2022"}
+        />
       </Head>
       <HeaderProgramaComponent />
       <div className="container">
@@ -69,6 +130,31 @@ const MovieDetailScreen = ({ resultado }) => {
               <p>{resultado["Producers"]}</p>
             )}
             {resultado["Writers"] == "." ? null : <p>{resultado["Writers"]}</p>}
+
+            <hr />
+            <FacebookShareButton
+              className="me-2"
+              url={"https://programa.gironafilmfestival.com/" + router.asPath}
+            >
+              <FacebookIcon size={30} />
+            </FacebookShareButton>
+            <TwitterShareButton
+              className="me-2"
+              url={"https://programa.gironafilmfestival.com/" + router.asPath}
+            >
+              <TwitterIcon size={30} />
+            </TwitterShareButton>
+            <WhatsappShareButton
+             className="me-2"
+              url={"https://programa.gironafilmfestival.com/" + router.asPath}
+            >
+              <WhatsappIcon size={30} />
+            </WhatsappShareButton>
+            <LinkedinShareButton
+              url={"https://programa.gironafilmfestival.com/" + router.asPath}
+            >
+              <LinkedinIcon size={30} />
+            </LinkedinShareButton>
           </div>
         </div>
       </div>
