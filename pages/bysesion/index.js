@@ -13,7 +13,7 @@ import CalendarToday from "@mui/icons-material/CalendarToday";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import SearchInAllWebComponent from "../../components/SearchInAllWebComponent/SearchInAllWebComponent";
-
+import Link from "next/link";
 export default function IndexByDates({ resultado }) {
   const [finalData, setFinalData] = React.useState(resultado);
   const [finalDataBack, setFinalDataBack] = React.useState(resultado);
@@ -219,16 +219,14 @@ export default function IndexByDates({ resultado }) {
                     </div>
                     <div className="card-footer">
                       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button
-                          className="btn btn-sm btn-outline-primary"
-                          type="button"
-                          onClick={() => {
-                            setIsOpen(true);
-                            setMovieSelected(pelicula);
-                          }}
-                        >
-                          <VisibilityIcon fontSize="small" />
-                        </button>
+                      <Link href={"/movie/" + pelicula["id"]} className="me-3">
+                      <button
+                        className="btn btn-sm btn-outline-success"
+                        type="button"
+                      >
+                        Ver más... <VisibilityIcon fontSize="small" />
+                      </button>
+                    </Link>
                       </div>
                     </div>
                   </div>
@@ -307,16 +305,14 @@ export default function IndexByDates({ resultado }) {
                     </div>
                     <div className="card-footer">
                       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button
-                          className="btn btn-sm btn-outline-primary"
-                          type="button"
-                          onClick={() => {
-                            setIsOpen(true);
-                            setMovieSelected(pelicula);
-                          }}
-                        >
-                          <VisibilityIcon fontSize="small" />
-                        </button>
+                      <Link href={"/movie/" + pelicula["id"]} className="me-3">
+                      <button
+                        className="btn btn-sm btn-outline-success"
+                        type="button"
+                      >
+                        Ver más... <VisibilityIcon fontSize="small" />
+                      </button>
+                    </Link>
                       </div>
                     </div>
                   </div>
