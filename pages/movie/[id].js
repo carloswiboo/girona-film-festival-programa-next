@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { readRemoteFile } from "react-papaparse";
 import HeaderProgramaComponent from "../../components/HeaderProgramaComponent/HeaderProgramaComponent";
@@ -11,6 +12,20 @@ const MovieDetailScreen = ({ resultado }) => {
   console.log(finalData);
   return (
     <React.Fragment>
+      <Head>
+        <title>{resultado["Project Title"]} - Girona Film Festival 34</title>
+        <meta name="description" content={"Girona Film Festival Programa 34"} />
+        <link
+          rel="icon"
+          type="image/png"
+          href="https://www.gironafilmfestival.com/wp-content/uploads/2022/08/logo-girona-film-festival.png"
+        />
+
+        <meta property="og:title" content={resultado["Project Title"]} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={resultado["Cartel"]}/>
+        <meta property="og:description" content={"GFF 8 al 13 Noviembre 2022"} />
+      </Head>
       <HeaderProgramaComponent />
       <div className="container">
         <div className="row">
