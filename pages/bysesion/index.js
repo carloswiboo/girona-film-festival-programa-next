@@ -219,14 +219,14 @@ export default function IndexByDates({ resultado }) {
                     </div>
                     <div className="card-footer">
                       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <Link href={"/movie/" + pelicula["id"]} className="me-3">
+                      <a target="_blank" rel="noreferrer" href={"/movie/" + pelicula["id"]} className="me-3">
                       <button
                         className="btn btn-sm btn-outline-success"
                         type="button"
                       >
                         Ver más... <VisibilityIcon fontSize="small" />
                       </button>
-                    </Link>
+                    </a>
                       </div>
                     </div>
                   </div>
@@ -305,14 +305,14 @@ export default function IndexByDates({ resultado }) {
                     </div>
                     <div className="card-footer">
                       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <Link href={"/movie/" + pelicula["id"]} className="me-3">
+                      <a target="_blank" rel="noreferrer" href={"/movie/" + pelicula["id"]} className="me-3">
                       <button
                         className="btn btn-sm btn-outline-success"
                         type="button"
                       >
                         Ver más... <VisibilityIcon fontSize="small" />
                       </button>
-                    </Link>
+                    </a>
                       </div>
                     </div>
                   </div>
