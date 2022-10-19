@@ -134,24 +134,24 @@ const MovieDetailScreen = ({ resultado }) => {
             <hr />
             <FacebookShareButton
               className="me-2"
-              url={"https://programa.gironafilmfestival.com/" + router.asPath}
+              url={"https://programa.gironafilmfestival.com" + router.asPath}
             >
               <FacebookIcon size={30} />
             </FacebookShareButton>
             <TwitterShareButton
               className="me-2"
-              url={"https://programa.gironafilmfestival.com/" + router.asPath}
+              url={"https://programa.gironafilmfestival.com" + router.asPath}
             >
               <TwitterIcon size={30} />
             </TwitterShareButton>
             <WhatsappShareButton
              className="me-2"
-              url={"https://programa.gironafilmfestival.com/" + router.asPath}
+              url={"https://programa.gironafilmfestival.com" + router.asPath}
             >
               <WhatsappIcon size={30} />
             </WhatsappShareButton>
             <LinkedinShareButton
-              url={"https://programa.gironafilmfestival.com/" + router.asPath}
+              url={"https://programa.gironafilmfestival.com" + router.asPath}
             >
               <LinkedinIcon size={30} />
             </LinkedinShareButton>
