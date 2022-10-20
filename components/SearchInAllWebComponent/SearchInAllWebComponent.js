@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import styles from "./SearchInAllWebComponent.module.css";
 import Link from "next/link";
-
+import SearchIcon from "@mui/icons-material/Search";
 const SearchInAllWebComponent = () => {
   const [textoaBuscar, setTextoABuscar] = React.useState("");
 
@@ -36,12 +36,12 @@ const SearchInAllWebComponent = () => {
       </div>
       <small className="mx-3">
         <Link href="/bydates" className="me-3">
-          <a>Buscar por Fechas</a>
+          <SearchIcon fontSize="inherit" /> Por Fechas
         </Link>
       </small>
       <small className="mx-3">
         <Link href="/bysesion" className="me-3">
-          <a>Buscar por Sesión</a>
+          <SearchIcon fontSize="inherit" /> Por Sesión
         </Link>
       </small>
     </div>
