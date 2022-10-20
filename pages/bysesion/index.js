@@ -14,6 +14,7 @@ import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import SearchInAllWebComponent from "../../components/SearchInAllWebComponent/SearchInAllWebComponent";
 import Link from "next/link";
+import HeaderProgramaComponent from "../../components/HeaderProgramaComponent/HeaderProgramaComponent";
 export default function IndexByDates({ resultado }) {
   const [finalData, setFinalData] = React.useState(resultado);
   const [finalDataBack, setFinalDataBack] = React.useState(resultado);
@@ -97,18 +98,7 @@ export default function IndexByDates({ resultado }) {
         />
       </Head>
 
-      <div className="container text-center mb-4 pt-5">
-        <div className="row">
-          <div className="col-12">
-            <img
-              src="https://www.gironafilmfestival.com/wp-content/uploads/2022/08/logo-blanco-girona.png"
-              alt="Girona Logo"
-            />
-            <h6 className="text-white">Edición 34</h6>
-            <h4 className="text-white">Programa</h4>
-          </div>
-        </div>
-      </div>
+      <HeaderProgramaComponent />
 
       <div className="container sticky-top">
         <SearchInAllWebComponent />

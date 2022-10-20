@@ -55,6 +55,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import TimerIcon from "@mui/icons-material/Timer";
 import PlaceIcon from "@mui/icons-material/Place";
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 
 import Blur from "react-blur";
 import FooterComponent from "../../components/FooterComponent/FooterComponent";
@@ -116,7 +117,7 @@ const MovieDetailScreen = ({ resultado }) => {
             ? "https://www.gironafilmfestival.com/wp-content/uploads/2022/09/Sin-titulo-1920-×-1080-px.png"
             : resultado["Fotograma"]
         }
-        blurRadius={9}
+        blurRadius={10}
         enableStyles
       >
         The content.
@@ -156,7 +157,7 @@ const MovieDetailScreen = ({ resultado }) => {
               </small>
             </h3>
             {resultado["Project Title (Original Language)"] == "." ? null : (
-              <h3>{resultado["Project Title (Original Language)"]}</h3>
+              <h6 style={{opacity: 0.5}}>{resultado["Project Title (Original Language)"]}</h6>
             )}
             {resultado["Dia"] == "." ? null : (
               <h4>
@@ -165,30 +166,73 @@ const MovieDetailScreen = ({ resultado }) => {
               </h4>
             )}
 
-            <p>
+            <table style={{ width: "100%" }}>
               {resultado["Country of Origin"] == "." ? null : (
                 <React.Fragment>
-                  <strong>País</strong> {resultado["Country of Origin"]}
-                  <br />
+                  <tr>
+                    <td style={{ textAlign: "right", paddingRight: 10 }}>
+                      <strong>
+                        {" "}
+                        <small>País </small>{" "}
+                      </strong>
+                    </td>
+                    <td style={{ textAlign: "left" }}>
+                      {" "}
+                      {resultado["Country of Origin"]}
+                    </td>
+                  </tr>
                 </React.Fragment>
               )}
               {resultado["Directors"] == "." ? null : (
                 <React.Fragment>
-                  <strong>Director(es)</strong> {resultado["Directors"]}
-                  <br />
+                  <tr>
+                    <td style={{ textAlign: "right", paddingRight: 10 }}>
+                      <strong>
+                        {" "}
+                        <small>Director(es) </small>{" "}
+                      </strong>
+                    </td>
+                    <td style={{ textAlign: "left" }}>
+                      {" "}
+                      {resultado["Directors"]}
+                    </td>
+                  </tr>
                 </React.Fragment>
               )}
               {resultado["Producers"] == "." ? null : (
                 <React.Fragment>
-                  <strong>Productor(es)</strong> {resultado["Producers"]} <br />
+                  <tr>
+                    <td style={{ textAlign: "right", paddingRight: 10 }}>
+                      <strong>
+                        {" "}
+                        <small>Productor(es) </small>{" "}
+                      </strong>
+                    </td>
+                    <td style={{ textAlign: "left" }}>
+                      {" "}
+                      {resultado["Producers"]}
+                    </td>
+                  </tr>
                 </React.Fragment>
               )}
               {resultado["Writers"] == "." ? null : (
                 <React.Fragment>
-                  <strong>Escritor(es)</strong> {resultado["Writers"]}
+                  <tr>
+                    <td style={{ textAlign: "right", paddingRight: 10 }}>
+                      <strong>
+                        {" "}
+                        <small>Escritor(es) </small>{" "}
+                      </strong>
+                    </td>
+                    <td style={{ textAlign: "left" }}>
+                      {" "}
+                      {resultado["Writers"]}
+                    </td>
+                  </tr>
                 </React.Fragment>
               )}
-            </p>
+            </table>
+
             <hr />
             <FacebookShareButton
               className="me-2"
@@ -222,23 +266,6 @@ const MovieDetailScreen = ({ resultado }) => {
             </InstapaperShareButton>
           </div>
           <div className="col-md-4 text-white text-center">
-            <h6
-              className="fw-light"
-              style={{ cursor: "pointer" }}
-              onClick={() => {
-                window.open(
-                  "https://www.google.com/maps/place/Pla%C3%A7a+Jordi+de+Sant+Jordi,+17001+Girona/@41.9846581,2.8215094,19z/data=!3m1!4b1!4m5!3m4!1s0x12bae6e0a4cd3195:0xe5dc12dd7fb73ea9!8m2!3d41.9846581!4d2.8220566",
-                  "_blank"
-                );
-              }}
-            >
-              <PlaceIcon fontSize="inherit" /> Cinemes Albeniz Plaça
-              <br />
-              <small style={{ opacity: 0.7 }}>
-                Plaça Sant Jordi y por carrer Ancelm Clavè
-              </small>
-            </h6>
-
             <div
               className="btn btn-sm btn-success mt-3"
               onClick={() => {
@@ -260,7 +287,7 @@ const MovieDetailScreen = ({ resultado }) => {
                 );
               }}
             >
-              Comprar Entradas{" "}
+             <ConfirmationNumberIcon fontSize="inherit" /> Comprar Entradas{" "}
             </div>
           </div>
         </div>
