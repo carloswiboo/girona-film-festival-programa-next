@@ -116,7 +116,7 @@ const MovieDetailScreen = ({ resultado }) => {
             ? "https://www.gironafilmfestival.com/wp-content/uploads/2022/09/Sin-titulo-1920-×-1080-px.png"
             : resultado["Fotograma"]
         }
-        blurRadius={5}
+        blurRadius={9}
         enableStyles
       >
         The content.
