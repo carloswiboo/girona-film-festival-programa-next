@@ -156,9 +156,14 @@ export default function IndexByDates({ resultado }) {
                         className="w-100 mb-2 imagen_1_1"
                         alt={pelicula["Project Title"]}
                       />
-                      <h5 className="card-title">
-                        {pelicula["Project Title"]}
-                      </h5>
+                         <h5 className="card-title">
+                    {pelicula["Project Title"].substring(0, 40).slice(0, 25) +
+                      "..."}
+                  </h5>
+                  <h6 className="card-title">
+                    {pelicula["Project Title (Original Language)"].substring(0, 40).slice(0, 25) +
+                      "..."}
+                  </h6>
                       <p className="card-text">
                         <CalendarToday
                           fontSize="small"
@@ -209,14 +214,19 @@ export default function IndexByDates({ resultado }) {
                     </div>
                     <div className="card-footer">
                       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <a target="_blank" rel="noreferrer" href={"/movie/" + pelicula["id"]} className="me-3">
-                      <button
-                        className="btn btn-sm btn-outline-success"
-                        type="button"
-                      >
-                        Ver más... <VisibilityIcon fontSize="small" />
-                      </button>
-                    </a>
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href={"/movie/" + pelicula["id"]}
+                          className="me-3"
+                        >
+                          <button
+                            className="btn btn-sm btn-outline-success"
+                            type="button"
+                          >
+                            Ver más... <VisibilityIcon fontSize="small" />
+                          </button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -236,11 +246,14 @@ export default function IndexByDates({ resultado }) {
                         className="w-100 mb-2 imagen_1_1"
                         alt={pelicula["Project Title"]}
                       />
-                      <h5 className="card-title">
-                        {pelicula["Project Title"]
-                          .substring(0, 40)
-                          .slice(0, 25) + "..."}
-                      </h5>
+                        <h5 className="card-title">
+                    {pelicula["Project Title"].substring(0, 40).slice(0, 25) +
+                      "..."}
+                  </h5>
+                  <h6 className="card-title">
+                    {pelicula["Project Title (Original Language)"].substring(0, 40).slice(0, 25) +
+                      "..."}
+                  </h6>
                       <p className="card-text">
                         {pelicula["Directors"] === "" ? null : (
                           <>{pelicula["Directors"]}</>
@@ -295,14 +308,19 @@ export default function IndexByDates({ resultado }) {
                     </div>
                     <div className="card-footer">
                       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <a target="_blank" rel="noreferrer" href={"/movie/" + pelicula["id"]} className="me-3">
-                      <button
-                        className="btn btn-sm btn-outline-success"
-                        type="button"
-                      >
-                        Ver más... <VisibilityIcon fontSize="small" />
-                      </button>
-                    </a>
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href={"/movie/" + pelicula["id"]}
+                          className="me-3"
+                        >
+                          <button
+                            className="btn btn-sm btn-outline-success"
+                            type="button"
+                          >
+                            Ver más... <VisibilityIcon fontSize="small" />
+                          </button>
+                        </a>
                       </div>
                     </div>
                   </div>

@@ -153,7 +153,7 @@ const MovieDetailScreen = ({ resultado }) => {
               {resultado["Project Title"]}{" "}
               <small style={{ opacity: 0.7, fontSize: "0.7em" }}>
                 {" "}
-                <TimerIcon fontSize="inherit" /> {resultado["Duration OK"]}
+                <TimerIcon className="d-none" fontSize="inherit" />  {resultado["Duration OK"]}
               </small>
             </h3>
             {resultado["Project Title (Original Language)"] == "." ? null : (
@@ -161,8 +161,8 @@ const MovieDetailScreen = ({ resultado }) => {
             )}
             {resultado["Dia"] == "." ? null : (
               <h4>
-                <CalendarMonthIcon fontSize="inherit" /> {resultado["Dia"]}{" "}
-                <AccessTimeIcon fontSize="inherit" /> {resultado["Hora"]}
+                <CalendarMonthIcon className="d-none" fontSize="inherit" /> {resultado["Dia"]}{" "}
+                <AccessTimeIcon className="d-none" fontSize="inherit" />  {resultado["Hora"]} H
               </h4>
             )}
 

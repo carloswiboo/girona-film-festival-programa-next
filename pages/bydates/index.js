@@ -46,7 +46,6 @@ export default function IndexByDates({ resultado }) {
     );
   };
 
-
   React.useEffect(() => {
     readRemoteFile(
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vRD9cIlCpdnkkljkwj38m-H9N_QfiYAFvqoCzHXttDyoNQLzxFcFuQgVtB7nVWfUA/pub?output=csv",
@@ -176,8 +175,15 @@ export default function IndexByDates({ resultado }) {
                         alt={pelicula["Project Title"]}
                       />
                       <h5 className="card-title">
-                        {pelicula["Project Title"]}
+                        {pelicula["Project Title"]
+                          .substring(0, 40)
+                          .slice(0, 25) + "..."}
                       </h5>
+                      <h6 className="card-title">
+                        {pelicula["Project Title (Original Language)"]
+                          .substring(0, 40)
+                          .slice(0, 25) + "..."}
+                      </h6>
                       <p className="card-text">
                         <CalendarToday
                           fontSize="small"
@@ -219,25 +225,28 @@ export default function IndexByDates({ resultado }) {
                           href="https://filmfreeway.com/GironaFilmFestival/tickets/128404"
                           target={"_blank"}
                           rel="noreferrer"
-                        
                           style={{ color: "white", textDecoration: "none" }}
                         >
                           <ConfirmationNumberIcon fontSize="small" /> Buy
                           Tickets
                         </a>
-                       
                       </p>
                     </div>
                     <div className="card-footer">
                       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <a target="_blank" rel="noreferrer" href={"/movie/" + pelicula["id"]} className="me-3">
-                      <button
-                        className="btn btn-sm btn-outline-success"
-                        type="button"
-                      >
-                        Ver más... <VisibilityIcon fontSize="small" />
-                      </button>
-                    </a>
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href={"/movie/" + pelicula["id"]}
+                          className="me-3"
+                        >
+                          <button
+                            className="btn btn-sm btn-outline-success"
+                            type="button"
+                          >
+                            Ver más... <VisibilityIcon fontSize="small" />
+                          </button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -257,11 +266,14 @@ export default function IndexByDates({ resultado }) {
                         className="w-100 mb-2 imagen_1_1"
                         alt={pelicula["Project Title"]}
                       />
-                      <h5 className="card-title">
-                        {pelicula["Project Title"]
-                          .substring(0, 40)
-                          .slice(0, 25) + "..."}
-                      </h5>
+                        <h5 className="card-title">
+                    {pelicula["Project Title"].substring(0, 40).slice(0, 25) +
+                      "..."}
+                  </h5>
+                  <h6 className="card-title">
+                    {pelicula["Project Title (Original Language)"].substring(0, 40).slice(0, 25) +
+                      "..."}
+                  </h6>
                       <p className="card-text">
                         {pelicula["Directors"] === "" ? null : (
                           <>{pelicula["Directors"]}</>
@@ -307,25 +319,28 @@ export default function IndexByDates({ resultado }) {
                           href="https://filmfreeway.com/GironaFilmFestival/tickets/128404"
                           target={"_blank"}
                           rel="noreferrer"
-                         
                           style={{ color: "white", textDecoration: "none" }}
                         >
                           <ConfirmationNumberIcon fontSize="small" /> Buy
                           Tickets
                         </a>
-                       
                       </p>
                     </div>
                     <div className="card-footer">
                       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <a target="_blank" rel="noreferrer" href={"/movie/" + pelicula["id"]} className="me-3">
-                      <button
-                        className="btn btn-sm btn-outline-success"
-                        type="button"
-                      >
-                        Ver más... <VisibilityIcon fontSize="small" />
-                      </button>
-                    </a>
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href={"/movie/" + pelicula["id"]}
+                          className="me-3"
+                        >
+                          <button
+                            className="btn btn-sm btn-outline-success"
+                            type="button"
+                          >
+                            Ver más... <VisibilityIcon fontSize="small" />
+                          </button>
+                        </a>
                       </div>
                     </div>
                   </div>

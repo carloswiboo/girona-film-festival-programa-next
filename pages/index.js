@@ -142,6 +142,10 @@ export default function Home({ resultado }) {
                     {pelicula["Project Title"].substring(0, 40).slice(0, 25) +
                       "..."}
                   </h5>
+                  <h6 className="card-title">
+                    {pelicula["Project Title (Original Language)"].substring(0, 40).slice(0, 25) +
+                      "..."}
+                  </h6>
                   <p className="card-text">
                     {pelicula["Directors"] === "" ? null : (
                       <>{pelicula["Directors"]}</>
