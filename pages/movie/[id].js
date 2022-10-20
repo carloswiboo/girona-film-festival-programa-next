@@ -118,7 +118,7 @@ const MovieDetailScreen = ({ resultado }) => {
             {resultado["Dia"] == "." ? null : <h4>{resultado["Dia"]}</h4>}
             {resultado["Hora"] == "." ? null : <h4>{resultado["Hora"]}</h4>}
             {resultado["Country of Origin"] == "." ? null : (
-              <p>País: {resultado["Country of Origin"]}</p>
+              <p><strong>País</strong> {resultado["Country of Origin"]}</p>
             )}
             {resultado["Directors"] == "." ? null : (
               <p>{resultado["Directors"]}</p>
@@ -145,7 +145,7 @@ const MovieDetailScreen = ({ resultado }) => {
               <TwitterIcon size={30} />
             </TwitterShareButton>
             <WhatsappShareButton
-             className="me-2"
+              className="me-2"
               url={"https://programa.gironafilmfestival.com" + router.asPath}
             >
               <WhatsappIcon size={30} />
