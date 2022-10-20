@@ -51,6 +51,14 @@ import {
   WorkplaceIcon,
 } from "react-share";
 
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import TimerIcon from "@mui/icons-material/Timer";
+import PlaceIcon from "@mui/icons-material/Place";
+
+import Blur from "react-blur";
+import FooterComponent from "../../components/FooterComponent/FooterComponent";
+
 const style = {
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
   borderRadius: 3,
@@ -64,15 +72,18 @@ const MovieDetailScreen = ({ resultado }) => {
   const [finalData, setFinalData] = React.useState(resultado);
   const router = useRouter();
 
-  debugger;
-
   const { id } = router.query;
   console.log(finalData);
   return (
     <React.Fragment>
       <Head>
         <title>{resultado["Project Title"]} - Girona Film Festival 34</title>
-        <meta name="description" content={"Girona Film Festival Programa 34"} />
+        <meta
+          name="description"
+          content={
+            "Girona Film Festival Programa 34 (7 al 13 de Noviembre 2022) - Comprar Boletos"
+          }
+        />
         <link
           rel="icon"
           type="image/png"
@@ -84,13 +95,48 @@ const MovieDetailScreen = ({ resultado }) => {
         <meta property="og:image" content={resultado["Cartel"]} />
         <meta
           property="og:description"
-          content={"GFF 8 al 13 Noviembre 2022"}
+          content={
+            "Girona Film Festival Programa 34 (7 al 13 de Noviembre 2022) - Comprar Boletos"
+          }
         />
       </Head>
+
+      <Blur
+        style={{
+          position: "fixed",
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: -11,
+          background: "rgba(0,0,0,0.5)",
+        }}
+        img={
+          resultado["Fotograma"] === "" || resultado["Fotograma"] === "."
+            ? "https://www.gironafilmfestival.com/wp-content/uploads/2022/09/Sin-titulo-1920-×-1080-px.png"
+            : resultado["Fotograma"]
+        }
+        blurRadius={5}
+        enableStyles
+      >
+        The content.
+      </Blur>
+
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: -10,
+          background: "rgba(0,0,0,0.7)",
+        }}
+      ></div>
       <HeaderProgramaComponent />
-      <div className="container">
+      <div className="container mb-4">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-4">
             <img
               src={
                 resultado["Cartel"] === "" || resultado["Cartel"] === "."
@@ -100,43 +146,49 @@ const MovieDetailScreen = ({ resultado }) => {
               className="w-100 mb-2"
               alt={resultado["Project Title"]}
             />
-            <img
-              src={
-                resultado["Fotograma"] === "" || resultado["Fotograma"] === "."
-                  ? "https://www.gironafilmfestival.com/wp-content/uploads/2022/09/Sin-titulo-1920-×-1080-px.png"
-                  : resultado["Fotograma"]
-              }
-              className="w-100 mb-2 imagen_1_1"
-              alt={resultado["Project Title"]}
-            />
           </div>
-          <div className="col-md-9 text-white">
-            <h3>{resultado["Project Title"]}</h3>
+          <div className="col-md-4 text-white text-center">
+            <h3>
+              {resultado["Project Title"]}{" "}
+              <small style={{ opacity: 0.7, fontSize: "0.7em" }}>
+                {" "}
+                <TimerIcon fontSize="inherit" /> {resultado["Duration OK"]}
+              </small>
+            </h3>
             {resultado["Project Title (Original Language)"] == "." ? null : (
               <h3>{resultado["Project Title (Original Language)"]}</h3>
             )}
             {resultado["Dia"] == "." ? null : (
               <h4>
-                {resultado["Dia"]} {resultado["Hora"]}
+                <CalendarMonthIcon fontSize="inherit" /> {resultado["Dia"]}{" "}
+                <AccessTimeIcon fontSize="inherit" /> {resultado["Hora"]}
               </h4>
             )}
-          
-            {resultado["Country of Origin"] == "." ? null : (
-              <p>
-                <strong>País</strong> {resultado["Country of Origin"]}
-              </p>
-            )}
-            {resultado["Directors"] == "." ? null : (
-              <p>{resultado["Directors"]}</p>
-            )}
-            {resultado["Duration OK"] == "." ? null : (
-              <p>{resultado["Duration OK"]}</p>
-            )}
-            {resultado["Producers"] == "." ? null : (
-              <p>{resultado["Producers"]}</p>
-            )}
-            {resultado["Writers"] == "." ? null : <p>{resultado["Writers"]}</p>}
 
+            <p>
+              {resultado["Country of Origin"] == "." ? null : (
+                <React.Fragment>
+                  <strong>País</strong> {resultado["Country of Origin"]}
+                  <br />
+                </React.Fragment>
+              )}
+              {resultado["Directors"] == "." ? null : (
+                <React.Fragment>
+                  <strong>Director(es)</strong> {resultado["Directors"]}
+                  <br />
+                </React.Fragment>
+              )}
+              {resultado["Producers"] == "." ? null : (
+                <React.Fragment>
+                  <strong>Productor(es)</strong> {resultado["Producers"]} <br />
+                </React.Fragment>
+              )}
+              {resultado["Writers"] == "." ? null : (
+                <React.Fragment>
+                  <strong>Escritor(es)</strong> {resultado["Writers"]}
+                </React.Fragment>
+              )}
+            </p>
             <hr />
             <FacebookShareButton
               className="me-2"
@@ -169,8 +221,51 @@ const MovieDetailScreen = ({ resultado }) => {
               <InstapaperIcon size={30} />
             </InstapaperShareButton>
           </div>
+          <div className="col-md-4 text-white text-center">
+            <h6
+              className="fw-light"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                window.open(
+                  "https://www.google.com/maps/place/Pla%C3%A7a+Jordi+de+Sant+Jordi,+17001+Girona/@41.9846581,2.8215094,19z/data=!3m1!4b1!4m5!3m4!1s0x12bae6e0a4cd3195:0xe5dc12dd7fb73ea9!8m2!3d41.9846581!4d2.8220566",
+                  "_blank"
+                );
+              }}
+            >
+              <PlaceIcon fontSize="inherit" /> Cinemes Albeniz Plaça
+              <br />
+              <small style={{ opacity: 0.7 }}>
+                Plaça Sant Jordi y por carrer Ancelm Clavè
+              </small>
+            </h6>
+
+            <div
+              className="btn btn-sm btn-success mt-3"
+              onClick={() => {
+                window.open(
+                  "https://www.google.com/maps/place/Pla%C3%A7a+Jordi+de+Sant+Jordi,+17001+Girona/@41.9846581,2.8215094,19z/data=!3m1!4b1!4m5!3m4!1s0x12bae6e0a4cd3195:0xe5dc12dd7fb73ea9!8m2!3d41.9846581!4d2.8220566",
+                  "_blank"
+                );
+              }}
+            >
+              Abrir Ubicación{" "}
+            </div>
+            <br />
+            <div
+              className="btn btn-sm btn-warning mt-3"
+              onClick={() => {
+                window.open(
+                  "https://filmfreeway.com/GironaFilmFestival/tickets/",
+                  "_blank"
+                );
+              }}
+            >
+              Comprar Entradas{" "}
+            </div>
+          </div>
         </div>
       </div>
+      <FooterComponent />
     </React.Fragment>
   );
 };
