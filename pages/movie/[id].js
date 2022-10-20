@@ -118,7 +118,7 @@ const MovieDetailScreen = ({ resultado }) => {
             {resultado["Dia"] == "." ? null : <h4>{resultado["Dia"]}</h4>}
             {resultado["Hora"] == "." ? null : <h4>{resultado["Hora"]}</h4>}
             {resultado["Country of Origin"] == "." ? null : (
-              <p>{resultado["Country of Origin"]}</p>
+              <p>País: {resultado["Country of Origin"]}</p>
             )}
             {resultado["Directors"] == "." ? null : (
               <p>{resultado["Directors"]}</p>
