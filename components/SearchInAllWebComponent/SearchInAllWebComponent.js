@@ -34,14 +34,18 @@ const SearchInAllWebComponent = () => {
       >
         Buscar
       </div>
-      <small className="mx-3">
-        <Link href="/bydates" className="me-3">
-          <SearchIcon fontSize="inherit" /> Por Fechas
+      <small className="mx-2 ms-3">
+        <Link href="/bydates" className="me-2">
+          <React.Fragment>
+            <SearchIcon fontSize="inherit" /> Por Fechas
+          </React.Fragment>
         </Link>
       </small>
-      <small className="mx-3">
-        <Link href="/bysesion" className="me-3">
-          <SearchIcon fontSize="inherit" /> Por Sesión
+      <small className="mx-2 ms-1">
+        <Link href="/bysesion" className="me-2">
+          <React.Fragment>
+            <SearchIcon fontSize="inherit" /> Por Sesión{" "}
+          </React.Fragment>
         </Link>
       </small>
     </div>
