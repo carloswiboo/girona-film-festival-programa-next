@@ -115,10 +115,16 @@ const MovieDetailScreen = ({ resultado }) => {
             {resultado["Project Title (Original Language)"] == "." ? null : (
               <h3>{resultado["Project Title (Original Language)"]}</h3>
             )}
-            {resultado["Dia"] == "." ? null : <h4>{resultado["Dia"]}</h4>}
-            {resultado["Hora"] == "." ? null : <h4>{resultado["Hora"]}</h4>}
+            {resultado["Dia"] == "." ? null : (
+              <h4>
+                {resultado["Dia"]} {resultado["Hora"]}
+              </h4>
+            )}
+          
             {resultado["Country of Origin"] == "." ? null : (
-              <p><strong>País</strong> {resultado["Country of Origin"]}</p>
+              <p>
+                <strong>País</strong> {resultado["Country of Origin"]}
+              </p>
             )}
             {resultado["Directors"] == "." ? null : (
               <p>{resultado["Directors"]}</p>
@@ -151,10 +157,17 @@ const MovieDetailScreen = ({ resultado }) => {
               <WhatsappIcon size={30} />
             </WhatsappShareButton>
             <LinkedinShareButton
+              className="me-2"
               url={"https://programa.gironafilmfestival.com" + router.asPath}
             >
               <LinkedinIcon size={30} />
             </LinkedinShareButton>
+            <InstapaperShareButton
+              className="me-2"
+              url={"https://programa.gironafilmfestival.com" + router.asPath}
+            >
+              <InstapaperIcon size={30} />
+            </InstapaperShareButton>
           </div>
         </div>
       </div>
