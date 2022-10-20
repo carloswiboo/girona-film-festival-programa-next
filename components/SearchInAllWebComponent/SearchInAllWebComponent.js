@@ -36,16 +36,16 @@ const SearchInAllWebComponent = () => {
       </div>
       <small className="mx-2 ms-3">
         <Link href="/bydates" className="me-2">
-          <React.Fragment>
+          <a style={{color: 'black', textDecoration: 'none', fontWeight: 'bold'}}>
             <SearchIcon fontSize="inherit" /> Por Fechas
-          </React.Fragment>
+          </a>
         </Link>
       </small>
       <small className="mx-2 ms-1">
         <Link href="/bysesion" className="me-2">
-          <React.Fragment>
+        <a style={{color: 'black', textDecoration: 'none', fontWeight: 'bold'}}>
             <SearchIcon fontSize="inherit" /> Por Sesión{" "}
-          </React.Fragment>
+          </a>
         </Link>
       </small>
     </div>
