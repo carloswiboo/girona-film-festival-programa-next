@@ -55,7 +55,6 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import TimerIcon from "@mui/icons-material/Timer";
 import PlaceIcon from "@mui/icons-material/Place";
-import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 
 import Blur from "react-blur";
 import FooterComponent from "../../components/FooterComponent/FooterComponent";
@@ -148,21 +147,26 @@ const MovieDetailScreen = ({ resultado }) => {
               alt={resultado["Project Title"]}
             />
           </div>
-          <div className="col-md-4 text-white text-center">
+          <div className="col-md-8 text-white text-center">
             <h3>
               {resultado["Project Title"]}{" "}
               <small style={{ opacity: 0.7, fontSize: "0.7em" }}>
                 {" "}
-                <TimerIcon className="d-none" fontSize="inherit" />  {resultado["Duration OK"]}
+                <TimerIcon className="d-none" fontSize="inherit" />{" "}
+                {resultado["Duration OK"]}
               </small>
             </h3>
             {resultado["Project Title (Original Language)"] == "." ? null : (
-              <h6 style={{opacity: 0.5}}>{resultado["Project Title (Original Language)"]}</h6>
+              <h6 style={{ opacity: 0.5 }}>
+                {resultado["Project Title (Original Language)"]}
+              </h6>
             )}
             {resultado["Dia"] == "." ? null : (
               <h4>
-                <CalendarMonthIcon className="d-none" fontSize="inherit" /> {resultado["Dia"]}{" "}
-                <AccessTimeIcon className="d-none" fontSize="inherit" />  {resultado["Hora"]} H
+                <CalendarMonthIcon className="d-none" fontSize="inherit" />{" "}
+                {resultado["Dia"]}{" "}
+                <AccessTimeIcon className="d-none" fontSize="inherit" />{" "}
+                {resultado["Hora"]} H
               </h4>
             )}
 
@@ -265,31 +269,7 @@ const MovieDetailScreen = ({ resultado }) => {
               <InstapaperIcon size={30} />
             </InstapaperShareButton>
           </div>
-          <div className="col-md-4 text-white text-center">
-            <div
-              className="btn btn-sm btn-success mt-3"
-              onClick={() => {
-                window.open(
-                  "https://www.google.com/maps/place/Pla%C3%A7a+Jordi+de+Sant+Jordi,+17001+Girona/@41.9846581,2.8215094,19z/data=!3m1!4b1!4m5!3m4!1s0x12bae6e0a4cd3195:0xe5dc12dd7fb73ea9!8m2!3d41.9846581!4d2.8220566",
-                  "_blank"
-                );
-              }}
-            >
-              Abrir Ubicación{" "}
-            </div>
-            <br />
-            <div
-              className="btn btn-sm btn-warning mt-3"
-              onClick={() => {
-                window.open(
-                  "https://filmfreeway.com/GironaFilmFestival/tickets/",
-                  "_blank"
-                );
-              }}
-            >
-             <ConfirmationNumberIcon fontSize="inherit" /> Comprar Entradas{" "}
-            </div>
-          </div>
+          <div className="col-md-4 text-white text-center"></div>
         </div>
       </div>
       <FooterComponent />

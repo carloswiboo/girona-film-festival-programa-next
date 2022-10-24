@@ -1,9 +1,10 @@
 import React from "react";
 import PlaceIcon from "@mui/icons-material/Place";
+import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 const HeaderProgramaComponent = () => {
   return (
     <div className="container mb-4 pt-5">
-      <div className="row">
+      <div className="row d-flex align-items-center">
         <div className="col-6">
           <img
             onClick={() => {
@@ -34,6 +35,17 @@ const HeaderProgramaComponent = () => {
               Plaça Sant Jordi y por carrer Ancelm Clavè, Girona
             </small>
           </h6>
+          <div
+            className="btn btn-sm btn-warning mt-2"
+            onClick={() => {
+              window.open(
+                "https://filmfreeway.com/GironaFilmFestival/tickets/",
+                "_blank"
+              );
+            }}
+          >
+            <ConfirmationNumberIcon fontSize="inherit" /> Comprar Entradas{" "}
+          </div>
         </div>
       </div>
     </div>
