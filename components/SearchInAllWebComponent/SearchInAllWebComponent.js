@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import styles from "./SearchInAllWebComponent.module.css";
 import Link from "next/link";
 import SearchIcon from "@mui/icons-material/Search";
+import DownloadIcon from '@mui/icons-material/Download';
 const SearchInAllWebComponent = () => {
   const [textoaBuscar, setTextoABuscar] = React.useState("");
 
@@ -65,7 +66,7 @@ const SearchInAllWebComponent = () => {
           href="https://drive.google.com/file/d/1Gmz-mejnKTF6x3lQq6RgyiFVDrq4vvHE/view?usp=sharing"
           style={{ color: "black", textDecoration: "none", fontWeight: "bold" }}
         >
-          Descargar Programa{" "}
+         <DownloadIcon fontSize="inherit" /> Descargar Programa{" "}
         </a>
       </small>
     </div>
