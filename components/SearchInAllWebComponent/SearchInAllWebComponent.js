@@ -36,17 +36,37 @@ const SearchInAllWebComponent = () => {
       </div>
       <small className="mx-2 ms-3">
         <Link href="/bydates" className="me-2">
-          <a style={{color: 'black', textDecoration: 'none', fontWeight: 'bold'}}>
+          <a
+            style={{
+              color: "black",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}
+          >
             <SearchIcon fontSize="inherit" /> Por Fechas
           </a>
         </Link>
       </small>
       <small className="mx-2 ms-1">
         <Link href="/bysesion" className="me-2">
-        <a style={{color: 'black', textDecoration: 'none', fontWeight: 'bold'}}>
+          <a
+            style={{
+              color: "black",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}
+          >
             <SearchIcon fontSize="inherit" /> Por Sesión{" "}
           </a>
         </Link>
+      </small>
+      <small className="mx-2 ms-3">
+        <a
+          href="https://drive.google.com/file/d/1Gmz-mejnKTF6x3lQq6RgyiFVDrq4vvHE/view?usp=sharing"
+          style={{ color: "black", textDecoration: "none", fontWeight: "bold" }}
+        >
+          Descargar Programa{" "}
+        </a>
       </small>
     </div>
   );
