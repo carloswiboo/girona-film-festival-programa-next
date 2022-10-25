@@ -60,7 +60,7 @@ const HeaderProgramaComponent = () => {
               <PlaceIcon fontSize="inherit" /> CINEMES ALBENIZ PLAÇA
               <br />
               <small style={{ opacity: 0.7 }} className="fw-light">
-                Plaça Sant Jordi y por Calle Ancelm Clavè, Girona
+              Plaza Santa Jordi y por la calle Anselm Clavé, Girona
               </small>
             </h6>
             <div
