@@ -8,7 +8,7 @@ const HeaderProgramaComponent = () => {
     new window.google.translate.TranslateElement(
       {
         pageLanguage: "es",
-        includedLanguages: "en,ms,ta,zh-CN", // include this for selected languages
+        includedLanguages: "en,ca,es", // include this for selected languages
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       },
       "google_translate_element"
@@ -27,7 +27,10 @@ const HeaderProgramaComponent = () => {
 
   return (
     <>
-      <TranslatorWidget sourceLanguageCode="es" className="translator" />
+      <div
+        id="google_translate_element"
+        style={{ position: "fixed", bottom: "0", left: "0", zIndex: 100000 }}
+      ></div>
       <div className="container mb-4 pt-5">
         <div className="row d-flex align-items-center">
           <div className="col-6">
