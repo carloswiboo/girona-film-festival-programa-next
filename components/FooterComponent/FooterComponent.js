@@ -26,7 +26,7 @@ const FooterComponent = () => {
           <PlaceIcon fontSize="inherit" /> CINEMES ALBENIZ PLAÇA
           <br />
           <small style={{ opacity: 0.7 }}>
-            Plaça Sant Jordi y por carrer Ancelm Clavè, Girona
+            Plaça Sant Jordi y por Calle Ancelm Clavè, Girona
           </small>
         </h6>
       </footer>
