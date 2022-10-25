@@ -27,26 +27,8 @@ export default function Home({ resultado }) {
 
   console.log(finalData);
 
-  React.useEffect(() => {
-    var addScript = document.createElement("script");
-    addScript.setAttribute(
-      "src",
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    );
-    document.body.appendChild(addScript);
-    window.googleTranslateElementInit = googleTranslateElementInit;
-  }, []);
 
-  const googleTranslateElementInit = () => {
-    new window.google.translate.TranslateElement(
-      {
-        pageLanguage: "es",
-        includedLanguages: "en,ms,ta,zh-CN", // include this for selected languages
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      },
-      "google_translate_element"
-    );
-  };
+
 
   React.useEffect(() => {
     readRemoteFile(
