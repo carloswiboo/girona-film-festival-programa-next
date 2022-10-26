@@ -155,13 +155,12 @@ export default function IndexByDates({ resultado }) {
                     );
                   }}
                 >
-                  <strong> Comprar Entradas </strong>
+                  <strong> En Ticketing </strong>
                 </Button>
               }
             >
               Compra tus entradas de la sesión :{" "}
-              <strong> {valorBuscarDias} </strong> en ticketing.
-            </Alert>
+              <strong> {valorBuscarDias} </strong>             </Alert>
           </div>
         </div>
       </div>

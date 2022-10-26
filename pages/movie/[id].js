@@ -153,12 +153,12 @@ const MovieDetailScreen = ({ resultado }) => {
                     );
                   }}
                 >
-                   <strong> Comprar Entradas </strong>
+                   <strong> En Ticketing </strong>
                 </Button>
               }
             >
-              Busca tus entradas en la sesión:{" "}
-              <strong> {resultado["Titulo programa"]} </strong> en ticketing
+              Compra tus entradas de la sesión :{" "}
+              <strong> {resultado["Titulo programa"]} </strong>
             </Alert>
           </div>
         </div>
