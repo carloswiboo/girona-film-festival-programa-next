@@ -147,7 +147,7 @@ export default function IndexByDates({ resultado }) {
             <Alert
               action={
                 <Button
-                  color="warning"
+                  
                   size="small"
                   onClick={() => {
                     window.open(
