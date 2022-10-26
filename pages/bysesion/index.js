@@ -147,7 +147,6 @@ export default function IndexByDates({ resultado }) {
             <Alert
               action={
                 <Button
-                  
                   size="small"
                   onClick={() => {
                     window.open(
@@ -156,11 +155,13 @@ export default function IndexByDates({ resultado }) {
                     );
                   }}
                 >
-                  Comprar Entradas
+                  <strong> Comprar Entradas </strong>
                 </Button>
               }
             >
-              Busca tus entradas como: <strong> {valorBuscarDias} </strong>
+              Compra tus entradas de la sesión :{" "}
+              <strong> {valorBuscarDias} </strong> en ticketing. Busca tus
+              entradas como:
             </Alert>
           </div>
         </div>
