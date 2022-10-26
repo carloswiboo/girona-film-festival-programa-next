@@ -155,7 +155,7 @@ const MovieDetailScreen = ({ resultado }) => {
                 </Button>
               }
             >
-            Busca tus entradas como: <strong> { resultado["Num. sesión"]} </strong>
+            Busca tus entradas como: <strong> { resultado["Titulo programa"]} </strong>
             </Alert>
           </div>
         </div>
