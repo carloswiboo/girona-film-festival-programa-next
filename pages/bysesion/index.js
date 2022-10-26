@@ -159,8 +159,9 @@ export default function IndexByDates({ resultado }) {
                 </Button>
               }
             >
-              Compra tus entradas de la sesión :{" "}
-              <strong> {valorBuscarDias} </strong>             </Alert>
+              Compra tus entradas de la sesión {" "}
+              <strong> {valorBuscarDias} </strong>{" "}
+            </Alert>
           </div>
         </div>
       </div>

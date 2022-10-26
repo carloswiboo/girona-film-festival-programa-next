@@ -157,7 +157,7 @@ const MovieDetailScreen = ({ resultado }) => {
                 </Button>
               }
             >
-              Compra tus entradas de la sesión :{" "}
+              Compra tus entradas de la sesión {" "}
               <strong> {resultado["Titulo programa"]} </strong>
             </Alert>
           </div>
