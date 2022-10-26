@@ -15,6 +15,9 @@ import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import SearchInAllWebComponent from "../../components/SearchInAllWebComponent/SearchInAllWebComponent";
 import Link from "next/link";
 import HeaderProgramaComponent from "../../components/HeaderProgramaComponent/HeaderProgramaComponent";
+import Alert from "@mui/material/Alert";
+import Button from "@mui/material/Button";
+
 export default function IndexByDates({ resultado }) {
   const [finalData, setFinalData] = React.useState(resultado);
   const [finalDataBack, setFinalDataBack] = React.useState(resultado);
@@ -138,6 +141,31 @@ export default function IndexByDates({ resultado }) {
         </div>
       </div>
 
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <Alert
+              action={
+                <Button
+                  color="warning"
+                  size="small"
+                  onClick={() => {
+                    window.open(
+                      "https://filmfreeway.com/GironaFilmFestival/tickets/",
+                      "_blank"
+                    );
+                  }}
+                >
+                  Comprar Entradas
+                </Button>
+              }
+            >
+              Busca tus entradas como: <strong> {valorBuscarDias} </strong>
+            </Alert>
+          </div>
+        </div>
+      </div>
+
       <div className="container mt-5">
         <div className="row">
           {finalData.map((pelicula, index) => (
@@ -156,14 +184,16 @@ export default function IndexByDates({ resultado }) {
                         className="w-100 mb-2 imagen_1_1"
                         alt={pelicula["Project Title"]}
                       />
-                         <h5 className="card-title">
-                    {pelicula["Project Title"].substring(0, 40).slice(0, 25) +
-                      "..."}
-                  </h5>
-                  <h6 className="card-title">
-                    {pelicula["Project Title (Original Language)"].substring(0, 40).slice(0, 25) +
-                      "..."}
-                  </h6>
+                      <h5 className="card-title">
+                        {pelicula["Project Title"]
+                          .substring(0, 40)
+                          .slice(0, 25) + "..."}
+                      </h5>
+                      <h6 className="card-title">
+                        {pelicula["Project Title (Original Language)"]
+                          .substring(0, 40)
+                          .slice(0, 25) + "..."}
+                      </h6>
                       <p className="card-text">
                         <CalendarToday
                           fontSize="small"
@@ -246,14 +276,16 @@ export default function IndexByDates({ resultado }) {
                         className="w-100 mb-2 imagen_1_1"
                         alt={pelicula["Project Title"]}
                       />
-                        <h5 className="card-title">
-                    {pelicula["Project Title"].substring(0, 40).slice(0, 25) +
-                      "..."}
-                  </h5>
-                  <h6 className="card-title">
-                    {pelicula["Project Title (Original Language)"].substring(0, 40).slice(0, 25) +
-                      "..."}
-                  </h6>
+                      <h5 className="card-title">
+                        {pelicula["Project Title"]
+                          .substring(0, 40)
+                          .slice(0, 25) + "..."}
+                      </h5>
+                      <h6 className="card-title">
+                        {pelicula["Project Title (Original Language)"]
+                          .substring(0, 40)
+                          .slice(0, 25) + "..."}
+                      </h6>
                       <p className="card-text">
                         {pelicula["Directors"] === "" ? null : (
                           <>{pelicula["Directors"]}</>
