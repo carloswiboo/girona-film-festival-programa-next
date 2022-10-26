@@ -160,8 +160,7 @@ export default function IndexByDates({ resultado }) {
               }
             >
               Compra tus entradas de la sesión :{" "}
-              <strong> {valorBuscarDias} </strong> en ticketing. Busca tus
-              entradas como:
+              <strong> {valorBuscarDias} </strong> en ticketing.
             </Alert>
           </div>
         </div>
