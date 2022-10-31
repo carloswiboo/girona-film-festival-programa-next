@@ -144,7 +144,6 @@ const MovieDetailScreen = ({ resultado }) => {
             <Alert
               action={
                 <Button
-                 
                   size="small"
                   onClick={() => {
                     window.open(
@@ -153,11 +152,11 @@ const MovieDetailScreen = ({ resultado }) => {
                     );
                   }}
                 >
-                   <strong> En Ticketing </strong>
+                  <strong> En Ticketing </strong>
                 </Button>
               }
             >
-              Compra tus entradas de la sesión {" "}
+              Compra tus entradas de la sesión{" "}
               <strong> {resultado["Titulo programa"]} </strong>
             </Alert>
           </div>
@@ -263,6 +262,124 @@ const MovieDetailScreen = ({ resultado }) => {
                     <td style={{ textAlign: "left" }}>
                       {" "}
                       {resultado["Writers"]}
+                    </td>
+                  </tr>
+                </React.Fragment>
+              )}
+              {resultado["Camera"] == "." ? null : (
+                <React.Fragment>
+                  <tr>
+                    <td style={{ textAlign: "right", paddingRight: 10 }}>
+                      <strong>
+                        {" "}
+                        <small>Cámara </small>{" "}
+                      </strong>
+                    </td>
+                    <td style={{ textAlign: "left" }}>
+                      {" "}
+                      {resultado["Camera"]}
+                    </td>
+                  </tr>
+                </React.Fragment>
+              )}
+              {resultado["Genres"] == "." ? null : (
+                <React.Fragment>
+                  <tr>
+                    <td style={{ textAlign: "right", paddingRight: 10 }}>
+                      <strong>
+                        {" "}
+                        <small>Género(s) </small>{" "}
+                      </strong>
+                    </td>
+                    <td style={{ textAlign: "left" }}>
+                      {" "}
+                      {resultado["Genres"]}
+                    </td>
+                  </tr>
+                </React.Fragment>
+              )}
+              {resultado["Key cast"] == "." ? null : (
+                <React.Fragment>
+                  <tr>
+                    <td style={{ textAlign: "right", paddingRight: 10 }}>
+                      <strong>
+                        {" "}
+                        <small>Cast Principal </small>{" "}
+                      </strong>
+                    </td>
+                    <td style={{ textAlign: "left" }}>
+                      {" "}
+                      {resultado["Key Cast"]}
+                    </td>
+                  </tr>
+                </React.Fragment>
+              )}
+              {resultado["Project Type"] == "." ? null : (
+                <React.Fragment>
+                  <tr>
+                    <td style={{ textAlign: "right", paddingRight: 10 }}>
+                      <strong>
+                        {" "}
+                        <small>Tipo de proyecto</small>{" "}
+                      </strong>
+                    </td>
+                    <td style={{ textAlign: "left" }}>
+                      {" "}
+                      {resultado["Project Type"]}
+                    </td>
+                  </tr>
+                </React.Fragment>
+              )}
+              {resultado["Synopsis"] == "." ? null : (
+                <React.Fragment>
+                  <tr>
+                    <td style={{ textAlign: "right", paddingRight: 10 }}>
+                      <strong>
+                        {" "}
+                        <small>Sinopsis</small>{" "}
+                      </strong>
+                    </td>
+                    <td style={{ textAlign: "left" }}>
+                      {" "}
+                      {resultado["Synopsis"]}
+                    </td>
+                  </tr>
+                </React.Fragment>
+              )}
+              {resultado["Synopsis (Original Language)"] == "." ? null : (
+                <React.Fragment>
+                  <tr>
+                    <td style={{ textAlign: "right", paddingRight: 10 }}>
+                      <strong>
+                        {" "}
+                        <small>Sinopsis</small>{" "}
+                      </strong>
+                    </td>
+                    <td style={{ textAlign: "left" }}>
+                      {" "}
+                      {resultado["Synopsis (Original Language)"]}
+                    </td>
+                  </tr>
+                </React.Fragment>
+              )}
+              {resultado["Trailer URL"] == "." ? null : (
+                <React.Fragment>
+                  <tr>
+                    <td style={{ textAlign: "right", paddingRight: 10 }}>
+                      <strong>
+                        {" "}
+                        <small>Trailer</small>{" "}
+                      </strong>
+                    </td>
+                    <td style={{ textAlign: "left" }}>
+                      <a
+                        href={resultado["Trailer URL"]}
+                        target="_blank"
+                        style={{color: 'white'}}
+                        rel="noreferrer"
+                      >
+                        Ver Trailer
+                      </a>
                     </td>
                   </tr>
                 </React.Fragment>
