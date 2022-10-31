@@ -62,6 +62,9 @@ import FooterComponent from "../../components/FooterComponent/FooterComponent";
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 
+import ReactPlayer from "react-player";
+import Vimeo from "@u-wave/react-vimeo";
+
 const style = {
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
   borderRadius: 3,
@@ -77,6 +80,7 @@ const MovieDetailScreen = ({ resultado }) => {
 
   const { id } = router.query;
   console.log(finalData);
+
   return (
     <React.Fragment>
       <Head>
@@ -168,6 +172,17 @@ const MovieDetailScreen = ({ resultado }) => {
       <div className="container mb-4">
         <div className="row">
           <div className="col-md-4">
+
+          <div style={{ position: "relative", paddingTop: "56.25%" }}>
+              <ReactPlayer
+                style={{ position: "absolute", top: 0, left: 0 }}
+                url={resultado["Trailer URL"]}
+                playing
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <br />
             <img
               src={
                 resultado["Cartel"] === "" || resultado["Cartel"] === "."
@@ -177,6 +192,9 @@ const MovieDetailScreen = ({ resultado }) => {
               className="w-100 mb-2"
               alt={resultado["Project Title"]}
             />
+        
+
+         
           </div>
           <div className="col-md-8 text-white text-center">
             <h3>
@@ -375,7 +393,7 @@ const MovieDetailScreen = ({ resultado }) => {
                       <a
                         href={resultado["Trailer URL"]}
                         target="_blank"
-                        style={{color: 'white'}}
+                        style={{ color: "white" }}
                         rel="noreferrer"
                       >
                         Ver Trailer
