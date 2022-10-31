@@ -172,17 +172,22 @@ const MovieDetailScreen = ({ resultado }) => {
       <div className="container mb-4">
         <div className="row">
           <div className="col-md-4">
+            {resultado["Trailer URL"] == "." ||
+            resultado["Trailer URL"] == "" ? null : (
+              <>
+                <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                  <ReactPlayer
+                    style={{ position: "absolute", top: 0, left: 0 }}
+                    url={resultado["Trailer URL"]}
+                    playing
+                    width="100%"
+                    height="100%"
+                  />
+                </div>
+                <br />
+              </>
+            )}
 
-          <div style={{ position: "relative", paddingTop: "56.25%" }}>
-              <ReactPlayer
-                style={{ position: "absolute", top: 0, left: 0 }}
-                url={resultado["Trailer URL"]}
-                playing
-                width="100%"
-                height="100%"
-              />
-            </div>
-            <br />
             <img
               src={
                 resultado["Cartel"] === "" || resultado["Cartel"] === "."
@@ -192,9 +197,6 @@ const MovieDetailScreen = ({ resultado }) => {
               className="w-100 mb-2"
               alt={resultado["Project Title"]}
             />
-        
-
-         
           </div>
           <div className="col-md-8 text-white text-center">
             <h3>
