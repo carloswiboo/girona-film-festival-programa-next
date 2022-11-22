@@ -4,6 +4,8 @@ import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import TranslatorWidget from "react-translate-widget";
 
 import AcUnitIcon from "@mui/icons-material/AcUnit";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import DownloadIcon from "@mui/icons-material/Download";
 
 const HeaderProgramaComponent = () => {
   const googleTranslateElementInit = () => {
@@ -81,8 +83,53 @@ const HeaderProgramaComponent = () => {
             </div>
           </div>
           <div className="col-6 text-right" style={{ textAlign: "right" }}>
+            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button
+                className="btn btn-sm btn-success"
+                type="button"
+                onClick={() => {
+                  window.open(
+                    "https://www.gironafilmfestival.com/wp-content/uploads/2022/11/34_Palmares_2022_ESP.pdf",
+                    "_blank"
+                  );
+                }}
+              >
+                <DownloadIcon fontSize="inherit" />
+                <PictureAsPdfIcon fontSize="inherit" />
+                ESP
+              </button>
+              <button
+                className="btn btn-sm btn-success"
+                type="button"
+                onClick={() => {
+                  window.open(
+                    "https://www.gironafilmfestival.com/wp-content/uploads/2022/11/34_Palmares_2022_CAT.pdf",
+                    "_blank"
+                  );
+                }}
+              >
+                <DownloadIcon fontSize="inherit" />
+                <PictureAsPdfIcon fontSize="inherit" />
+                CAT
+              </button>
+              <button
+                className="btn btn-sm btn-success"
+                type="button"
+                onClick={() => {
+                  window.open(
+                    "https://www.gironafilmfestival.com/wp-content/uploads/2022/11/34_Palmares_2022_ENG.pdf",
+                    "_blank"
+                  );
+                }}
+              >
+                <DownloadIcon fontSize="inherit" />
+                <PictureAsPdfIcon fontSize="inherit" />
+                ENG
+              </button>
+            </div>
+
             <h6
-              className=""
+              className="mt-3"
               style={{ cursor: "pointer", color: "white" }}
               onClick={() => {
                 window.open(

@@ -1,8 +1,10 @@
 import React from "react";
 import HeaderProgramaComponent from "../../components/HeaderProgramaComponent/HeaderProgramaComponent";
 import { readRemoteFile } from "react-papaparse";
+import Head from "next/head";
+
 export default function Index({ resultado }) {
-  const [finalData, setFinalData] = React.useState(resultado);
+  const [finalData, setFinalData] = React.useState([]);
 
   const [valorBuscarDias, setValorBuscarDias] = React.useState("ALL");
 
@@ -50,24 +52,47 @@ export default function Index({ resultado }) {
 
   return (
     <>
+      <Head>
+        <title>34 Girona Film Festival - Palmarés</title>
+        <meta
+          name="description"
+          content="Consulta los ganadores de la edición 34"
+        ></meta>
+        <meta
+          name="og:title"
+          property="og:title"
+          content="Consulta los ganadores de la edición 34"
+        ></meta>
+        <meta name="robots" content="index, follow"></meta>
+        <link href="URL" rel="canonical"></link>
+        <link
+          rel="icon"
+          type="image/png"
+          href="https://www.gironafilmfestival.com/wp-content/uploads/2022/08/logo-girona-film-festival.png"
+        />
+      </Head>
+
       <HeaderProgramaComponent />
-      <div className="container">
+      <div className="container mb-4">
         <div className="row">
           <div className="col-12 h2 text-white">Palmarés 34 GFF</div>
         </div>
       </div>
 
       <div className="container">
-        <div className="row">
-          {finalData.map((pelicula) => (
-            <>
-              <div className="col-12 mb-3 text-white">
+        {finalData.map((pelicula) => (
+          <>
+            <div className="row d-flex align-items-center">
+              <div className="col-md-1">
+                <img src={pelicula["Cartel"]} alt="Ganador" className="w-100" />
+              </div>
+              <div className="col-md-11 mb-3 text-white">
                 <img
                   src="https://www.gironafilmfestival.com/wp-content/uploads/2022/11/corona-de-laurel.png"
                   height={30}
                 />
-                <p className="fw-bold p-0 m-0 pb-1">{pelicula["Razon"]}</p>
-                <h5 className="m-0 p-0 pb-1">
+                <p className="fw-bold p-0 m-0">{pelicula["Razon"]}</p>
+                <h5 className="m-0 p-0">
                   {pelicula["Project Title"]}
                   <small>
                     {pelicula["Project Title (Original Language)"] ==
@@ -86,7 +111,7 @@ export default function Index({ resultado }) {
                 <small>Director(s): {pelicula["Directors"]}</small>
                 <br />
                 <small>
-                  Producer(s):{" "}
+                  Producer(s):
                   {pelicula["Producers"] == "." ? null : pelicula["Producers"]}
                 </small>
                 <br />
@@ -96,9 +121,9 @@ export default function Index({ resultado }) {
                     : pelicula["Other Credits"]}
                 </small>
               </div>
-            </>
-          ))}
-        </div>
+            </div>
+          </>
+        ))}
       </div>
     </>
   );
