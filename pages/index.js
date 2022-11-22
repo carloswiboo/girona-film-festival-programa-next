@@ -24,12 +24,6 @@ export default function Home({ resultado }) {
   const [finalDataHoras, setFinalDataHoras] = React.useState([]);
   const [valorBuscarDias, setValorBuscarDias] = React.useState("ALL");
   const [valorBuscarHoras, setValorBuscarHoras] = React.useState("");
-
-  console.log(finalData);
-
-
-
-
   React.useEffect(() => {
     readRemoteFile(
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vRD9cIlCpdnkkljkwj38m-H9N_QfiYAFvqoCzHXttDyoNQLzxFcFuQgVtB7nVWfUA/pub?output=csv",
@@ -99,7 +93,7 @@ export default function Home({ resultado }) {
           href="https://www.gironafilmfestival.com/wp-content/uploads/2022/08/logo-girona-film-festival.png"
         />
       </Head>
-     <HeaderProgramaComponent />
+      <HeaderProgramaComponent />
 
       <div className="container sticky-top">
         <SearchInAllWebComponent />
@@ -125,8 +119,9 @@ export default function Home({ resultado }) {
                       "..."}
                   </h5>
                   <h6 className="card-title">
-                    {pelicula["Project Title (Original Language)"].substring(0, 40).slice(0, 25) +
-                      "..."}
+                    {pelicula["Project Title (Original Language)"]
+                      .substring(0, 40)
+                      .slice(0, 25) + "..."}
                   </h6>
                   <p className="card-text">
                     {pelicula["Directors"] === "" ? null : (
@@ -172,6 +167,7 @@ export default function Home({ resultado }) {
                     <a
                       href="https://filmfreeway.com/GironaFilmFestival/tickets/128404"
                       target={"_blank"}
+                      className="d-none"
                       rel="noreferrer"
                       style={{ color: "#800142", textDecoration: "none" }}
                     >
@@ -181,7 +177,12 @@ export default function Home({ resultado }) {
                 </div>
                 <div className="card-footer">
                   <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a  target="_blank" rel="noreferrer" href={"/movie/" + pelicula["id"]} className="me-3">
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href={"/movie/" + pelicula["id"]}
+                      className="me-3"
+                    >
                       <button
                         className="btn btn-sm btn-outline-success"
                         type="button"

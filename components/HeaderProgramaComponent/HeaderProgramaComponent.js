@@ -3,6 +3,8 @@ import PlaceIcon from "@mui/icons-material/Place";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import TranslatorWidget from "react-translate-widget";
 
+import AcUnitIcon from "@mui/icons-material/AcUnit";
+
 const HeaderProgramaComponent = () => {
   const googleTranslateElementInit = () => {
     new window.google.translate.TranslateElement(
@@ -43,10 +45,13 @@ const HeaderProgramaComponent = () => {
               height="50"
             />
             <small className="text-white ms-2">
-              Edición 34 - 7 al 13 Noviembre 2022{" "}
+              <strong>Histórico</strong> - Edición 34 - 7 al 13 Noviembre 2022{" "}
             </small>
           </div>
-          <div className="col-6 text-right" style={{ textAlign: "right" }}>
+          <div
+            className="col-6 text-right d-none"
+            style={{ textAlign: "right" }}
+          >
             <h6
               className=""
               style={{ cursor: "pointer", color: "white" }}
@@ -60,11 +65,11 @@ const HeaderProgramaComponent = () => {
               <PlaceIcon fontSize="inherit" /> CINEMES ALBENIZ PLAÇA
               <br />
               <small style={{ opacity: 0.7 }} className="fw-light">
-              Plaza Santa Jordi y por la calle Anselm Clavé, Girona
+                Plaza Santa Jordi y por la calle Anselm Clavé, Girona
               </small>
             </h6>
             <div
-              className="btn btn-sm btn-warning mt-2"
+              className="btn btn-sm btn-warning mt-2 d-none"
               onClick={() => {
                 window.open(
                   "https://filmfreeway.com/GironaFilmFestival/tickets/",
@@ -74,6 +79,20 @@ const HeaderProgramaComponent = () => {
             >
               <ConfirmationNumberIcon fontSize="inherit" /> Comprar Entradas{" "}
             </div>
+          </div>
+          <div className="col-6 text-right" style={{ textAlign: "right" }}>
+            <h6
+              className=""
+              style={{ cursor: "pointer", color: "white" }}
+              onClick={() => {
+                window.open(
+                  "https://patrocinadores.gironafilmfestival.com",
+                  "_blank"
+                );
+              }}
+            >
+              <AcUnitIcon fontSize="inherit" /> Ver Patrocinadores
+            </h6>
           </div>
         </div>
       </div>
