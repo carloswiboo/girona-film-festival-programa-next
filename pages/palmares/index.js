@@ -56,12 +56,12 @@ export default function Index({ resultado }) {
         <title>34 Girona Film Festival - Palmarés</title>
         <meta
           name="description"
-          content="Consulta los ganadores de la edición 34"
+          content="34 Girona Film Festival - Consulta los Ganadores 2022"
         ></meta>
         <meta
           name="og:title"
           property="og:title"
-          content="Consulta los ganadores de la edición 34"
+          content="34 Girona Film Festival - Consulta los Ganadores 2022"
         ></meta>
         <meta name="robots" content="index, follow"></meta>
         <link href="URL" rel="canonical"></link>
