@@ -23,10 +23,10 @@ export default function Index({ resultado }) {
           const optionsSelected = [];
 
           results.data.sort(function (a, b) {
-            if (a["Submission Categories"] < b["Submission Categories"]) {
+            if (a["Orden"] < b["Orden"]) {
               return -1;
             }
-            if (a["Submission Categories"] > b["Submission Categories"]) {
+            if (a["Orden"] > b["Orden"]) {
               return 1;
             }
             return 0;
@@ -80,8 +80,8 @@ export default function Index({ resultado }) {
       </div>
 
       <div className="container">
-        {finalData.map((pelicula) => (
-          <>
+        {finalData.map((pelicula, index) => (
+          <React.Fragment key={index}>
             <div className="row d-flex align-items-center">
               <div className="col-md-1">
                 <img src={pelicula["Cartel"]} alt="Ganador" className="w-100" />
@@ -108,6 +108,8 @@ export default function Index({ resultado }) {
 
                 <small>{pelicula["Submission Categories"]}</small>
                 <br />
+                <small>{pelicula["Country of Origin"]}</small>
+                <br />
                 <small>Director(s): {pelicula["Directors"]}</small>
                 <br />
                 <small>
@@ -122,7 +124,7 @@ export default function Index({ resultado }) {
                 </small>
               </div>
             </div>
-          </>
+          </React.Fragment>
         ))}
       </div>
     </>
