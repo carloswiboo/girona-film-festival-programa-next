@@ -17,6 +17,7 @@ export default function Index({ resultado }) {
           let contador = 1;
           for (const dato of results.data) {
             dato["id"] = contador;
+            dato["Orden"] = parseInt(dato["Orden"]);
             contador++;
           }
 
